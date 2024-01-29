@@ -17,18 +17,16 @@
 }
 
 .card-fader {
-    position: absolute;
-    left: 0px;
-    top: 0px;
+
     transform: scaleX(-1);
 }
 
 .card-fader:nth-child(odd) {
-    animation: fade-left 3s linear infinite;
+    animation: fade-left 6s linear infinite;
 }
 
 .card-fader:nth-child(even) {
-    animation: fade-right 3s linear infinite;
+    animation: fade-right 6s linear infinite;
 }
 
 .card-fader:is(:nth-child(3), :nth-child(4)) {
@@ -46,7 +44,7 @@
 @keyframes fade-left {
     from {
         scale: 1;
-        translate: 0%;
+        translate: 0;
         opacity: 1;
     }
 
@@ -60,7 +58,7 @@
 @keyframes fade-right {
     from {
         scale: 1;
-        translate: 0%;
+        translate: 0;
         opacity: 1;
     }
 
@@ -68,5 +66,44 @@
         scale: 0.8;
         translate: 30%;
         opacity: 0;
+    }
+}
+
+
+.loading-indicator {
+    box-shadow: rgba(0, 0, 0, 0.12) 0 1px 6px, rgba(0, 0, 0, 0.12) 0 1px 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-indicator:before,
+.loading-indicator:after {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    content: "";
+}
+
+.loading-indicator:after {
+    background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+    border-radius: 0.375rem;
+    height: calc(100% - 4px);
+    width: calc(100% - 4px);
+}
+
+.loading-indicator:before {
+    background: linear-gradient(to right, #4fbccc 50%, #db6a65 50%);
+    animation: loading-indicator-rotation 6s linear infinite;
+    height: 150px;
+    width: 500%;
+}
+
+@keyframes loading-indicator-rotation {
+    from {
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
     }
 }

@@ -13,29 +13,29 @@ $config = json_decode($config);
 </head>
 <body class="flex flex-col align-middle bg-[#f8fafc] min-h-dvh">
     <div class="h-dvh w-full absolute top-0 bottom-0 opacity-25 bg-repeat object-fit bg-[url('../img/bg-page.jpg')]" style="background-size: 50%;"></div>
-    <div class="w-full md:w-1/2 md:mx-auto lg:w-1/3 grid grid-cols-1 gap-4 h-fit p-5 mb-auto card">
-        <div class="flex flex-col relative rounded-md min-h-48  shadow-xl">
+    <div class="w-full md:w-1/2 md:mx-auto 2xl:w-1/3 grid grid-cols-1 gap-4 h-fit p-5 mb-auto card">
+        <div class="flex flex-col relative rounded-md min-h-48 lg:h-64 xl:h-96 shadow-xl">
             <div class="w-full h-full absolute top-0 bottom-0 rounded-md bg-no-repeat bg-cover bg-center bg-[url('../img/bg-header.jpg')]" style="transform: scaleX(-1)"></div>
-            <div class="max-h-24 md:max-h-28 lg:max-h-32 p-2 rounded-full z-0">
+            <div class="max-h-24 md:max-h-28 lg:max-h-32 xl:max-h-40 p-2 rounded-full z-0">
                     <img src="assets/img/logo-met-ms-naar-de-top.svg" class="max-h-full rounded-full bg-white/75 ml-auto"  alt="cover photo of team met MS naar de TOP">
             </div>
             <div class="card-faders w-full h-full absolute top-0 bottom-0 rounded-md" style="z-index: -100">
-                <img class="card-fader card-image rounded-md w-full h-full absolute top-0 bottom-0" src="./assets/img/bg-header.jpg" />
-                <img class="card-fader card-image rounded-md w-full h-full absolute top-0 bottom-0" src="./assets/img/bg-header.jpg" />
-                <img class="card-fader card-image rounded-md w-full h-full absolute top-0 bottom-0" src="./assets/img/bg-header.jpg" />
-                <img class="card-fader card-image rounded-md w-full h-full absolute top-0 bottom-0" src="./assets/img/bg-header.jpg" />
-                <img class="card-fader card-image rounded-md w-full h-full absolute top-0 bottom-0" src="./assets/img/bg-header.jpg" />
-                <img class="card-fader card-image rounded-md w-full h-full absolute top-0 bottom-0" src="./assets/img/bg-header.jpg" />
-                <img class="card-fader card-image rounded-md w-full h-full absolute top-0 bottom-0" src="./assets/img/bg-header.jpg" />
-                <img class="card-fader card-image rounded-md w-full h-full absolute top-0 bottom-0" src="./assets/img/bg-header.jpg" />
+                <div class="card-fader card-image absolute left-0 top-0 rounded-md w-full h-full bottom-0 bg-no-repeat bg-cover bg-center bg-[url('../img/bg-header.jpg')]"></div>
+                <div class="card-fader card-image absolute left-0 top-0 rounded-md w-full h-full bottom-0 bg-no-repeat bg-cover bg-center bg-[url('../img/bg-header.jpg')]"></div>
+                <div class="card-fader card-image absolute left-0 top-0 rounded-md w-full h-full bottom-0 bg-no-repeat bg-cover bg-center bg-[url('../img/bg-header.jpg')]"></div>
+                <div class="card-fader card-image absolute left-0 top-0 rounded-md w-full h-full bottom-0 bg-no-repeat bg-cover bg-center bg-[url('../img/bg-header.jpg')]"></div>
+                <div class="card-fader card-image absolute left-0 top-0 rounded-md w-full h-full bottom-0 bg-no-repeat bg-cover bg-center bg-[url('../img/bg-header.jpg')]"></div>
+                <div class="card-fader card-image absolute left-0 top-0 rounded-md w-full h-full bottom-0 bg-no-repeat bg-cover bg-center bg-[url('../img/bg-header.jpg')]"></div>
+                <div class="card-fader card-image absolute left-0 top-0 rounded-md w-full h-full bottom-0 bg-no-repeat bg-cover bg-center bg-[url('../img/bg-header.jpg')]"></div>
+                <div class="card-fader card-image absolute left-0 top-0 rounded-md w-full h-full bottom-0 bg-no-repeat bg-cover bg-center bg-[url('../img/bg-header.jpg')]"></div>
             </div>
         </div>
         <?php
         foreach ($config as $walk)
         {
             ?>
-            <div class="flex flex-col relative rounded-md bg-gray-100 px-4 py-6 shadow-xl">
-                <div class="flex flex-row justify-center items-center">
+            <div class="flex flex-col relative rounded-md bg-gray-100 px-4 py-6 shadow-xl loading-indicator">
+                <div class="flex flex-row justify-center items-center z-10">
                     <div class="flex flex-col grow">
                         <h2 class="text-lg">
                             <?= $walk->title ?>
@@ -68,13 +68,13 @@ $config = json_decode($config);
                             <span class="absolute text-md text-green-600"><?= $walk->data[2] ?>%</span>
                     </div>
                 </div>
-                <div class="pt-2 mb-4">
-                    <p class="text-sm">
+                <div class="pt-2 mb-4 z-10">
+                    <p class="text-sm z-10">
                         <?= $walk->description ?>
                     </p>
                 </div>
 
-                <div class="flex flex-row justify-center <?php if($walk->data[2] > 99){echo ' hidden';} ?>">
+                <div class="flex flex-row justify-center z-10 <?php if($walk->data[2] > 99){echo ' hidden';} ?>">
                     <div class="flex items-center justify-center basis-1/2">
                         <div class="relative group w-full">
                             <div class="absolute -inset-0.5 bg-gradient-to-r from-[#4fbccc] to-[#db6a65] rounded-lg blur transition duration-200 animate-tilt"></div>
